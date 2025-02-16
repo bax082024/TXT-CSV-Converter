@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TxtToCsvConverter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb596aa2dd5827dbd5b73234988f8cacf1308717")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48133d0106b66ff5bf8c19b1100c36aba1b1a2e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("TxtToCsvConverter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TxtToCsvConverter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

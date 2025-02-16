@@ -40,6 +40,10 @@ class Program
         Console.Write("Enter the path to save the CSV file (with .csv extension): ");
         string outputPath = Console.ReadLine();
 
+        Console.Write("Enter the delimiter to use (example: ? , , ; |): ");
+        char delimiter = Console.ReadKey().KeyChar;
+        Console.WriteLine();
+
         if (!File.Exists(inputPath))
         {
             Console.WriteLine("Error: The specified TXT file does not exist.");
@@ -51,14 +55,14 @@ class Program
             using (var reader = new StreamReader(inputPath))
             using (var writer = new StreamWriter(outputPath))
             {
-                writer.WriteLine("Question,Answer");
+                writer.WriteLine($"Question{delimiter}Answer");
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    var parts = line.Split(new string[] { "? " }, StringSplitOptions.None);
+                    var parts = line.Split('?');
                     if (parts.Length == 2)
                     {
-                        writer.WriteLine($"\"{parts[0]}?\",\"{parts[1]}\"");
+                        writer.WriteLine($"\"{parts[0].Trim()}?\"{delimiter}\"{parts[1].Trim()}\"");
                     }
                 }
             }
@@ -78,6 +82,10 @@ class Program
         Console.Write("Enter the path to save the TXT file (with .txt extension): ");
         string outputPath = Console.ReadLine();
 
+        Console.Write("Enter the delimiter used in the CSV file (example: ? , , ; |): ");
+        char delimiter = Console.ReadKey().KeyChar;
+        Console.WriteLine();
+
         if (!File.Exists(inputPath))
         {
             Console.WriteLine("Error: The specified CSV file does not exist.");
@@ -93,10 +101,10 @@ class Program
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    var parts = line.Split(',');
+                    var parts = line.Split(delimiter);
                     if (parts.Length == 2)
                     {
-                        writer.WriteLine($"{parts[0].Trim('"')}? {parts[1].Trim('"')}");
+                        writer.WriteLine($"{parts[0].Trim('"')}{(delimiter == ',' ? "." : "")} {parts[1].Trim('"')}");
                     }
                 }
             }
