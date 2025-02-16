@@ -25,5 +25,8 @@ A simple TXT to CSV converter i made because i needed it for another project.
 
 ---
 
+## Contact
 
+For questions or feedback, please contact :
+	- **bax082024@gmail.com**
 
