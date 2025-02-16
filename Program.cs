@@ -53,12 +53,12 @@ class Program
             using (var writer = new StreamWriter(outputPath, false, Encoding.UTF8))
             {
                 writer.WriteLine("Question,Answer");
-                string question = null;
-                string answer = null;
+                string? question = null;
+                string? answer = null;
 
                 while (!reader.EndOfStream)
                 {
-                    string line = reader.ReadLine();
+                    string? line = reader.ReadLine();
                     if (string.IsNullOrWhiteSpace(line)) continue;
 
                     if (question == null)
@@ -106,10 +106,9 @@ class Program
             using (var reader = new StreamReader(inputPath, Encoding.UTF8))
             using (var writer = new StreamWriter(outputPath, false, Encoding.UTF8))
             {
-                reader.ReadLine(); 
-                while (!reader.EndOfStream)
+                var line = reader.ReadLine();
+                if (line != null)
                 {
-                    var line = reader.ReadLine();
                     var parts = line.Split(",", 2);
                     if (parts.Length == 2)
                     {
