@@ -38,4 +38,36 @@ class Program
 
     }
 
+    static void ConvertTxtToCsv()
+    {
+        Console.Write("Enter the path of the TXT file: ");
+        string inputPath = Console.ReadLine();
+
+        Console.Write("Enter the path to save the CSV file: ");
+        string outputPath = Console.ReadLine();
+
+        try
+        {
+            using (var reader = new StreamReader(inputPath))
+            using (var writer = new StreamWriter(outputPath))
+            {
+                writer.WriteLine("Question,Answer");
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    var parts = line.Split('\t');
+                    if (parts.Length == 2)
+                    {
+                        writer.WriteLine($"\"{parts[0]}\",\"{parts[1]}\"");
+                    }
+                }
+            }
+            Console.WriteLine("TXT to CSV conversion successful!");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
 }
