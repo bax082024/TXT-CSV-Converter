@@ -14,7 +14,7 @@ class Program
             Console.WriteLine("3. Exit");
             Console.Write("Choose an option (1-3): ");
 
-            string choice = Console.ReadLine();
+            string choice = Console.ReadLine() ?? String.Empty;
 
             switch (choice)
             {
@@ -36,10 +36,10 @@ class Program
     static void ConvertTxtToCsv()
     {
         Console.Write("Enter the path of the TXT file: ");
-        string inputPath = Console.ReadLine();
+        string inputPath = Console.ReadLine() ?? String.Empty;
 
         Console.Write("Enter the path to save the CSV file (with .csv extension): ");
-        string outputPath = Console.ReadLine();
+        string outputPath = Console.ReadLine() ?? String.Empty;
 
         if (!File.Exists(inputPath))
         {
@@ -90,10 +90,10 @@ class Program
     static void ConvertCsvToTxt()
     {
         Console.Write("Enter the path of the CSV file: ");
-        string inputPath = Console.ReadLine();
+        string inputPath = Console.ReadLine() ?? String.Empty;
 
         Console.Write("Enter the path to save the TXT file (with .txt extension): ");
-        string outputPath = Console.ReadLine();
+        string outputPath = Console.ReadLine() ?? String.Empty;
 
         if (!File.Exists(inputPath))
         {

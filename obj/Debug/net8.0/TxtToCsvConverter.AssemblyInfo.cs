@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TxtToCsvConverter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e5d2183789b2abc3618ea887a9ce031f236e93b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a4744df3cb9931957d887ac2b96f61c78ce418b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TxtToCsvConverter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TxtToCsvConverter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
