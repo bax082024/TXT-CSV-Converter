@@ -1,0 +1,15 @@
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\bin\Debug\net8.0\TxtToCsvConverter.exe
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\bin\Debug\net8.0\TxtToCsvConverter.deps.json
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\bin\Debug\net8.0\TxtToCsvConverter.runtimeconfig.json
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\bin\Debug\net8.0\TxtToCsvConverter.dll
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\bin\Debug\net8.0\TxtToCsvConverter.pdb
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\TxtToCsvConverter.GeneratedMSBuildEditorConfig.editorconfig
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\TxtToCsvConverter.AssemblyInfoInputs.cache
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\TxtToCsvConverter.AssemblyInfo.cs
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\TxtToCsvConverter.csproj.CoreCompileInputs.cache
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\TxtToCsvConverter.sourcelink.json
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\TxtToCsvConverter.dll
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\refint\TxtToCsvConverter.dll
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\TxtToCsvConverter.pdb
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\TxtToCsvConverter.genruntimeconfig.cache
+C:\HjemmeKode\C-Sharp\TxtToCsvConverter\TxtToCsvConverter\obj\Debug\net8.0\ref\TxtToCsvConverter.dll
