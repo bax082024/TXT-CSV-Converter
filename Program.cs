@@ -7,9 +7,10 @@ class Program
     {
         while (true)
         {
-            
+            Console.WriteLine("===========================================");
             Console.WriteLine("=== TXT to CSV / CSV to TXT Converter ===");
-            Console.WriteLine("1. Convert TXT to CSV");
+            Console.WriteLine("===========================================");
+            Console.WriteLine("\n1. Convert TXT to CSV");
             Console.WriteLine("2. Convert CSV to TXT");
             Console.WriteLine("3. Exit");
             Console.Write("Choose an option (1-3): ");
