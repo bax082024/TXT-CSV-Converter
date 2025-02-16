@@ -70,4 +70,36 @@ class Program
         }
     }
 
+    static void ConvertCsvToTxt()
+    {
+        Console.Write("Enter the path of the CSV file: ");
+        string inputPath = Console.ReadLine();
+
+        Console.Write("Enter the path to save the TXT file: ");
+        string outputPath = Console.ReadLine();
+
+        try
+        {
+            using (var reader = new StreamReader(inputPath))
+            using (var writer = new StreamWriter(outputPath))
+            {
+                string headerLine = reader.ReadLine(); // Skip header
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    var parts = line.Split(',');
+                    if (parts.Length == 2)
+                    {
+                        writer.WriteLine($"{parts[0].Trim('\"')}\t{parts[1].Trim('\"')}");
+                    }
+                }
+            }
+            Console.WriteLine("CSV to TXT conversion successful!");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
 }
