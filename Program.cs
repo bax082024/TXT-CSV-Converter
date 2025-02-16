@@ -41,10 +41,10 @@ class Program
     static void ConvertTxtToCsv()
     {
         Console.Write("Enter the path of the TXT file: ");
-        string inputPath = Console.ReadLine();
+        string inputPath = Console.ReadLine() ?? string.Empty;
 
         Console.Write("Enter the path to save the CSV file: ");
-        string outputPath = Console.ReadLine();
+        string outputPath = Console.ReadLine() ?? string.Empty;
 
         try
         {
