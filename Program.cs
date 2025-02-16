@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 class Program
 {
@@ -40,10 +41,6 @@ class Program
         Console.Write("Enter the path to save the CSV file (with .csv extension): ");
         string outputPath = Console.ReadLine();
 
-        Console.Write("Enter the delimiter to use (example: ? , , ; |): ");
-        char delimiter = Console.ReadKey().KeyChar;
-        Console.WriteLine();
-
         if (!File.Exists(inputPath))
         {
             Console.WriteLine("Error: The specified TXT file does not exist.");
@@ -52,18 +49,34 @@ class Program
 
         try
         {
-            using (var reader = new StreamReader(inputPath))
-            using (var writer = new StreamWriter(outputPath))
+            using (var reader = new StreamReader(inputPath, Encoding.UTF8))
+            using (var writer = new StreamWriter(outputPath, false, Encoding.UTF8))
             {
-                writer.WriteLine($"Question{delimiter}Answer");
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                writer.WriteLine("Question,Answer");
+                string question = null;
+                string answer = null;
+
+                while (!reader.EndOfStream)
                 {
-                    var parts = line.Split('?');
-                    if (parts.Length == 2)
+                    string line = reader.ReadLine();
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+
+                    if (question == null)
                     {
-                        writer.WriteLine($"\"{parts[0].Trim()}?\"{delimiter}\"{parts[1].Trim()}\"");
+                        question = line.Trim();
                     }
+                    else
+                    {
+                        answer = line.Trim();
+                        writer.WriteLine($"\"{question}\",\"{answer}\"");
+                        question = null;
+                        answer = null;
+                    }
+                }
+
+                if (question != null && answer == null)
+                {
+                    Console.WriteLine("Warning: Last question has no matching answer.");
                 }
             }
             Console.WriteLine("TXT to CSV conversion successful!");
@@ -82,10 +95,6 @@ class Program
         Console.Write("Enter the path to save the TXT file (with .txt extension): ");
         string outputPath = Console.ReadLine();
 
-        Console.Write("Enter the delimiter used in the CSV file (example: ? , , ; |): ");
-        char delimiter = Console.ReadKey().KeyChar;
-        Console.WriteLine();
-
         if (!File.Exists(inputPath))
         {
             Console.WriteLine("Error: The specified CSV file does not exist.");
@@ -94,17 +103,18 @@ class Program
 
         try
         {
-            using (var reader = new StreamReader(inputPath))
-            using (var writer = new StreamWriter(outputPath))
+            using (var reader = new StreamReader(inputPath, Encoding.UTF8))
+            using (var writer = new StreamWriter(outputPath, false, Encoding.UTF8))
             {
-                reader.ReadLine(); // Skip header
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                reader.ReadLine(); 
+                while (!reader.EndOfStream)
                 {
-                    var parts = line.Split(delimiter);
+                    var line = reader.ReadLine();
+                    var parts = line.Split(",", 2);
                     if (parts.Length == 2)
                     {
-                        writer.WriteLine($"{parts[0].Trim('"')}{(delimiter == ',' ? "." : "")} {parts[1].Trim('"')}");
+                        writer.WriteLine(parts[0].Trim('"'));
+                        writer.WriteLine(parts[1].Trim('"'));
                     }
                 }
             }
