@@ -7,17 +7,13 @@ class Program
     {
         while (true)
         {
-            Console.Clear();
-            Console.WriteLine("===========================================");
             Console.WriteLine("=== TXT to CSV / CSV to TXT Converter ===");
-            Console.WriteLine("===========================================");
-            Console.WriteLine("\n1. Convert TXT to CSV");
+            Console.WriteLine("1. Convert TXT to CSV");
             Console.WriteLine("2. Convert CSV to TXT");
             Console.WriteLine("3. Exit");
-            Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("\nChoose an option (1-3): ");
+            Console.Write("Choose an option (1-3): ");
 
-            string choice = Console.ReadLine() ?? string.Empty;
+            string choice = Console.ReadLine();
 
             switch (choice)
             {
@@ -33,18 +29,22 @@ class Program
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
-
         }
-
     }
 
     static void ConvertTxtToCsv()
     {
         Console.Write("Enter the path of the TXT file: ");
-        string inputPath = Console.ReadLine() ?? string.Empty;
+        string inputPath = Console.ReadLine();
 
-        Console.Write("Enter the path to save the CSV file: ");
-        string outputPath = Console.ReadLine() ?? string.Empty;
+        Console.Write("Enter the path to save the CSV file (with .csv extension): ");
+        string outputPath = Console.ReadLine();
+
+        if (!File.Exists(inputPath))
+        {
+            Console.WriteLine("Error: The specified TXT file does not exist.");
+            return;
+        }
 
         try
         {
@@ -55,10 +55,10 @@ class Program
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    var parts = line.Split('\t');
+                    var parts = line.Split(new string[] { "? " }, StringSplitOptions.None);
                     if (parts.Length == 2)
                     {
-                        writer.WriteLine($"\"{parts[0]}\",\"{parts[1]}\"");
+                        writer.WriteLine($"\"{parts[0]}?\",\"{parts[1]}\"");
                     }
                 }
             }
@@ -66,7 +66,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error during conversion: " + ex.Message);
         }
     }
 
@@ -75,22 +75,28 @@ class Program
         Console.Write("Enter the path of the CSV file: ");
         string inputPath = Console.ReadLine();
 
-        Console.Write("Enter the path to save the TXT file: ");
+        Console.Write("Enter the path to save the TXT file (with .txt extension): ");
         string outputPath = Console.ReadLine();
+
+        if (!File.Exists(inputPath))
+        {
+            Console.WriteLine("Error: The specified CSV file does not exist.");
+            return;
+        }
 
         try
         {
             using (var reader = new StreamReader(inputPath))
             using (var writer = new StreamWriter(outputPath))
             {
-                string headerLine = reader.ReadLine(); // Skip header
+                reader.ReadLine(); // Skip header
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     var parts = line.Split(',');
                     if (parts.Length == 2)
                     {
-                        writer.WriteLine($"{parts[0].Trim('\"')}\t{parts[1].Trim('\"')}");
+                        writer.WriteLine($"{parts[0].Trim('"')}? {parts[1].Trim('"')}");
                     }
                 }
             }
@@ -98,8 +104,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error during conversion: " + ex.Message);
         }
     }
-
 }
