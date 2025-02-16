@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxtToCsvConverter", "TxtToCsvConverter.csproj", "{B221779D-303F-4C13-A966-F4CD9019E44F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B221779D-303F-4C13-A966-F4CD9019E44F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B221779D-303F-4C13-A966-F4CD9019E44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B221779D-303F-4C13-A966-F4CD9019E44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B221779D-303F-4C13-A966-F4CD9019E44F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D444276-6D9B-4BA8-8812-0DA620F68482}
+	EndGlobalSection
+EndGlobal
