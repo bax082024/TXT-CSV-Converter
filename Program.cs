@@ -19,6 +19,21 @@ class Program
 
             string choice = Console.ReadLine() ?? string.Empty;
 
+            switch (choice)
+            {
+                case "1":
+                    ConvertTxtToCsv();
+                    break;
+                case "2":
+                    ConvertCsvToTxt();
+                    break;
+                case "3":
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+
         }
 
     }
